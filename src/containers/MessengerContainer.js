@@ -15,11 +15,14 @@ import {
 
 var GiftedMessenger = require('react-native-gifted-messenger');
 
-var STATUS_BAR_HEIGHT = 20;
 if (Platform.OS == 'ios') {
+  var STATUS_BAR_HEIGHT = 0;
+  var CONTAINER_MARGIN = 20;
   var UserName = 'ios';
   var AvatarUrl = 'https://source.unsplash.com/sseiVD2XsOk/100x100';
 } else {
+  var STATUS_BAR_HEIGHT = 27;
+  var CONTAINER_MARGIN = 0;
   var UserName = 'android';
   var AvatarUrl = 'https://source.unsplash.com/2Ts5HnA67k8/100x100';
 }
@@ -51,9 +54,6 @@ class MessengerContainer extends Component {
     });
   }
 
-  componentWillUnmount() {
-  }
-
   setMessages(messages) {
     this._messages = messages;
 
@@ -77,7 +77,7 @@ class MessengerContainer extends Component {
 
   render() {
     return (
-      <View style={{marginTop: STATUS_BAR_HEIGHT}}>
+      <View style={{marginTop: CONTAINER_MARGIN}}>
         <GiftedMessenger
           styles={{
             bubbleRight: {
@@ -87,7 +87,7 @@ class MessengerContainer extends Component {
           }}
           messages={this.state.messages}
           handleSend={this.handleSend.bind(this)}
-          maxHeight={Dimensions.get('window').height - STATUS_BAR_HEIGHT}
+          maxHeight={Dimensions.get('window').height - STATUS_BAR_HEIGHT - CONTAINER_MARGIN}
         />
       </View>
     );
