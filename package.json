@@ -1,0 +1,14 @@
+{
+  "name": "reactNativeFirebaseSample",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "react-native start"
+  },
+  "dependencies": {
+    "firebase": "^2.4.2",
+    "react": "^15.0.2",
+    "react-native": "^0.26.0",
+    "react-native-gifted-messenger": "^0.1.4"
+  }
+}
